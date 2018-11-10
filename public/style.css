@@ -1,0 +1,28 @@
+/* canvas {
+    border: solid black;
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%; height: 50%;
+} */
+
+#drawerView {
+    display: flex;
+    flex-direction: column;
+}
+
+#mainView {
+    display: flex;
+    flex-direction: row;
+}
+
+#card {
+    border: solid blue;
+}
+
+#guesses {
+    border: solid black;
+}
+
+#whiteboard {
+    border: solid pink;
+}
