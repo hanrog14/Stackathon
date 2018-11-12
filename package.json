@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "deploy": "scripts/deploy",
+    "deploy": "script/deploy",
     "start-dev": "NODE_ENV='development' npm run build-watch & npm run start-server",
     "build-watch": "webpack -w",
     "start-server": "nodemon server --ignore public",
