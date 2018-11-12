@@ -10,7 +10,7 @@ class Guesses extends React.Component {
 
     checkGuess(guess) {
         if (guess.name === this.props.card.name) {
-            socket.emit('nextPlayerTurn', this.props.room, this.props.player)
+            socket.emit('correctGuess', this.props.room, guess)
         }
     }
 
@@ -18,12 +18,11 @@ class Guesses extends React.Component {
         return (
             <div id="guesses">
                 <h1>Guesses: </h1>
-                <ul>
-                    {this.props.guesses.map((guess, i) => {
-                        if (this.props.hasOwnProperty('card')) this.checkGuess(guess)
-                        return <li key={i}>{guess.name}</li>
-                    })}
-                </ul>
+                <hr />
+                {this.props.guesses.map((guess, i) => {
+                    if (this.props.hasOwnProperty('card')) this.checkGuess(guess)
+                    return <p key={i}>{guess.player.name} guessed {guess.name}</p>
+                })}
             </div>
         )
     }
@@ -32,9 +31,7 @@ class Guesses extends React.Component {
 const mapStateToProps = state => {
     return {
         guesses: state.guesses,
-        room: state.room,
-        player: state.player
-    }
+        room: state.room    }
 }
 
 export default connect(mapStateToProps)(Guesses)

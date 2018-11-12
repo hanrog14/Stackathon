@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const path = require('path')
 const {db} = require('./db');
+require('./visRecog')
 
 db.sync().then(() => console.log('Database is synced'));
 

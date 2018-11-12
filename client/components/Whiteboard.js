@@ -2,6 +2,7 @@ import {EventEmitter} from 'events'
 import React from 'react'
 import socket from '../socket'
 import {connect} from 'react-redux'
+import { setBadImage } from '../store';
 
 class Whiteboard extends React.Component {
     constructor() {
@@ -22,6 +23,9 @@ class Whiteboard extends React.Component {
         const ctx = this.refs.canvas.getContext('2d');
         ctx.canvas.width = window.innerWidth/2;
         ctx.canvas.height = window.innerHeight*2/3;
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        ctx.lineWidth = 5
     }
 
     mouseDownEvt(event) {
@@ -60,9 +64,12 @@ class Whiteboard extends React.Component {
     }
 
     submitDrawing() {
+        this.props.setBadImage(false);
         const ctx = this.refs.canvas.getContext('2d');
-        ctx.clearRect(0, 0, this.refs.canvas.width, this.refs.canvas.height)
         socket.emit('pictureSubmitted', this.props.room, this.refs.canvas.toDataURL("image/png"))
+        ctx.clearRect(0, 0, this.refs.canvas.width, this.refs.canvas.height)
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     }
 
     render() {
@@ -80,4 +87,11 @@ const mapStateToProps = (state) => {
         room: state.room
     }
 }
-export default connect(mapStateToProps)(Whiteboard)
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setBadImage: (val) => dispatch(setBadImage(val))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Whiteboard)

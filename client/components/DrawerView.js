@@ -6,7 +6,7 @@ import {getCard} from '../store'
 
 class DrawerView extends React.Component {
     componentDidMount() {
-        this.props.getCard()
+        this.props.getCard(this.props.cardIdx)
     }
 
     render() {
@@ -23,6 +23,7 @@ class DrawerView extends React.Component {
                     </div>
                     <Guesses card={this.props.card}/>
                 </div>
+                {this.props.badImage && <p id="errMessage">Please do not post inappropriate pictures</p>}
             </div>
         )
     }
@@ -30,14 +31,15 @@ class DrawerView extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        guesses: state.guesses,
-        card: state.card
+        card: state.card,
+        cardIdx: state.cardIdx,
+        badImage: state.badImage
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getCard: () => dispatch(getCard())
+        getCard: (idx) => dispatch(getCard(idx))
     }
 }
 

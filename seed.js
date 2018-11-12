@@ -2,26 +2,26 @@ const {db, Card} = require('./server/db')
 const {green, red} = require('chalk')
 
 const cards = [
-    {name: 'cat', tags: 'kitten kitty cats'},
-    {name: 'elephant', tags: 'mammoth elephants mammoths'},
-    {name: 'umbrella', tags: 'canopy umbrellas canopies'},
-    {name: 'dancing', tags: 'dance dancer danced'},
-    {name: 'horse', tags: 'horsey pony horses'},
-    {name: 'door', tags: 'doors'},
-    {name: 'treasure', tags: 'treasures'},
-    {name: 'baseball', tags: 'baseballs'},
-    {name: 'dominos', tags: 'domino'},
-    {name: 'toast', tags: 'toasted toasting'},
-    {name: 'rollerblading', tags: 'rollerblade rollerblades'},
-    {name: 'cake', tags: 'cakes'},
-    {name: 'queen', tags: 'queens'},
-    {name: 'bicycle', tags: 'bike bikes bicycling biking bicycles'},
-    {name: 'password', tags: 'passwords'},
-    {name: 'bomb', tags: 'bombs explosive explosives'},
-    {name: 'pirate', tags: 'pirates'},
-    {name: 'plane', tags: 'planes aircraft aircrafts'},
-    {name: 'photograph', tags: 'picture pictures photographs'},
-    {name: 'computer', tags: 'computers'}
+  {name: 'cat', tags: 'kitten kitty cats'},
+  {name: 'queen', tags: 'queens'},
+  {name: 'door', tags: 'doors'},
+  {name: 'cake', tags: 'cakes'},
+  {name: 'baseball', tags: 'baseballs'},
+  {name: 'bicycle', tags: 'bike bikes bicycling biking bicycles'},
+  {name: 'elephant', tags: 'mammoth elephants mammoths'},
+  {name: 'umbrella', tags: 'canopy umbrellas canopies'},
+  {name: 'dancing', tags: 'dance dancer danced'},
+  {name: 'horse', tags: 'horsey pony horses'},
+  {name: 'treasure', tags: 'treasures'},
+  {name: 'dominos', tags: 'domino'},
+  {name: 'toast', tags: 'toasted toasting'},
+  {name: 'rollerblading', tags: 'rollerblade rollerblades'},
+  {name: 'password', tags: 'passwords'},
+  {name: 'bomb', tags: 'bombs explosive explosives'},
+  {name: 'pirate', tags: 'pirates'},
+  {name: 'plane', tags: 'planes aircraft aircrafts'},
+  {name: 'photograph', tags: 'picture pictures photographs'},
+  {name: 'computer', tags: 'computers'}
 ]
 
 const seed = async () => {
